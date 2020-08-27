@@ -1,0 +1,49 @@
+*:before, *:after {
+	 content: '';
+	 position: absolute;
+}
+ .app {
+	 width: fit-content;
+	 height: 100%;
+	 margin: auto;
+	 border-radius: 1rem;
+	 padding: 2rem;
+	 background: rgba(0, 0, 0, 0.1);
+}
+ .app, .row {
+	 display: flex;
+	 flex-wrap: wrap;
+}
+ .clock {
+	 width: 1.5rem;
+	 height: 1.5rem;
+	 background: lightgray;
+	 border-radius: 50%;
+	 position: relative;
+}
+ .clock:before, .clock:after {
+	 transform: translate(-50%) rotate(var(--angleFrom));
+	 background: black;
+	 left: 50%;
+	 transform-origin: bottom center;
+	 transition: 1s;
+	 width: 0.1rem;
+	 height: 50%;
+	 border-radius: 5px;
+	 animation: var(--time) changeColor linear var(--delay) infinite;
+}
+ .clock:before {
+	 transform: rotate(var(--bigAngle));
+}
+ .clock:after {
+	 transform: rotate(var(--smallAngle));
+}
+ @keyframes changeColor {
+	 from {
+		 transform: rotate(var(--angleFrom));
+	}
+	 to {
+		 transform: rotate(var(--angleTo));
+	}
+}
+ 
